@@ -1,0 +1,76 @@
+<div class="card-body">
+    <h4 class="card-title" style="margin-bottom: 50px;">
+        Search Athletes
+    </h4>
+<div class="form-group row">
+
+    <label class="col-md-3 control-label">Name</label>
+
+    <div class="col-md-3">
+        <input type="text" class="form-control" id="name" [(ngModel)]="name" (keyup)="loadAthletesSearchData()"/>
+    </div>
+    <label for="example-date-input" class="col-3 col-form-label">Gender</label>
+    <div class="col-3">
+        <select id="gender" class="form-control" [(ngModel)]="gender" (change)="loadAthletesSearchData()">
+            <option selected>Male</option>
+            <option>Female</option>
+        </select>
+    </div>
+</div>
+<div class="form-group row">
+
+    <label class="col-md-3 control-label">Country</label>
+
+    <div class="col-md-3">
+        <select id="country" class="form-control" id="country" [(ngModel)]="country" (change)="loadAthletesSearchData()">
+            <option selected>Italy</option>
+            <option>Sri lanka</option>
+        </select>
+    </div>
+    <label for="example-date-input" class="col-3 col-form-label">Event</label>
+    <div class="col-3">
+        <select  id="event" class="form-control" [(ngModel)]="event" (change)="loadAthletesSearchData()">
+            <option selected>100 m</option>
+            <option>200 m</option>
+        </select>
+    </div>
+</div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h4 class="card-title" style="margin-bottom: 50px;">
+                    Athletes Table</h4>
+                <table  class="table table-striped" >
+                    <thead>
+                        <tr>
+                            <th style="width: 10%;">Name</th>
+                            <th style="width: 10%;">Gender</th>
+                            <th style="width: 20%;">Country</th>
+                            <th style="width: 10%;">Event</th>
+                            <th style="width: 10%;">Result</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of dataTable">
+                                
+                                <td>{{ data.firstName +" "+data.lastName }}</td>
+                                <td>{{ data.gender }}</td>
+                                <td>{{ data.country }}</td>
+                                <td>{{ data.event}}</td>
+                                <td>{{ data.result}}</td>
+                              </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>

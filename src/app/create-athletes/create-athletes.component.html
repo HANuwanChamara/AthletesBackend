@@ -1,0 +1,63 @@
+<form [formGroup]="athletesForm" (ngSubmit)="onSubmit()">
+     <h4 class="card-title" style="margin-bottom: 50px;margin-left: 100px;">
+        Create Athletes
+     </h4>
+      <div class="form-group col-md-6">
+        <label for="fname">First Name</label>
+        <input type="text" class="form-control" id="fname" placeholder="first name" formControlName="firstName">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="lname">Last Name</label>
+        <input type="text" class="form-control" id="lname" placeholder="last name" formControlName="lastName">
+      </div>
+    <div class="form-group col-md-4">
+      <label for="gender">Gender</label>
+      <select id="gender" class="form-control" formControlName="gender">
+        <option selected>Male</option>
+        <option>Female</option>
+      </select>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="birth">Date of birth</label>
+      <input type="date" class="form-control" id="birth" placeholder="date of birth" formControlName="dataOfBirth">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="country">Country</label>
+      <select id="country" class="form-control" id="country" formControlName="country">
+        <option selected>Italy</option>
+        <option>Sri lanka</option>
+      </select>
+    </div>
+    <div class="col-md-12">
+      <div class="form-group col-md-4">
+        <label for="country">Upload a photo</label>
+          <input type="file" name="files" id="File" 
+          data-height="150" accept=""  />
+      </div>
+      </div>
+    <div class="form-row">
+      <label style="margin-left: 20px;" class="col-md-2" for="event">Event</label>
+      <div class="form-group col-md-4">
+        
+        <select  id="event" class="form-control" formControlName="event">
+          <option selected>100 m</option>
+          <option>200 m</option>
+        </select>
+      </div>
+      <div >
+        <button type="button" style="margin-left: 60px;" class="btn btn-info" (click)='eventLoad()'>Attach</button>
+      </div>
+    </div>  
+    <div class="form-group col-md-4">
+      <ng-container *ngIf="eventList != null">
+                                            
+        <tr *ngFor='let elist of eventList'> 
+                <td  >{{elist}}</td>
+                <td><button type="button" class="btn btn-info"  (click)='removeEvent(elist)' style="margin-left: 60px;">Remove</button></td>
+        </tr>
+      </ng-container>          
+    </div>
+    <button type="submit" style="margin-left: 400px;" class="btn btn-primary">Save</button>
+  </form>
+
+
